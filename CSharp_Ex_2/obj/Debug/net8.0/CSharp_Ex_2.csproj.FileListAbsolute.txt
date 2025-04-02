@@ -1,0 +1,14 @@
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex_2/bin/Debug/net8.0/CSharp_Ex_2
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex_2/bin/Debug/net8.0/CSharp_Ex_2.deps.json
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex_2/bin/Debug/net8.0/CSharp_Ex_2.runtimeconfig.json
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex_2/bin/Debug/net8.0/CSharp_Ex_2.dll
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex_2/bin/Debug/net8.0/CSharp_Ex_2.pdb
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex_2/obj/Debug/net8.0/CSharp_Ex_2.GeneratedMSBuildEditorConfig.editorconfig
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex_2/obj/Debug/net8.0/CSharp_Ex_2.AssemblyInfoInputs.cache
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex_2/obj/Debug/net8.0/CSharp_Ex_2.AssemblyInfo.cs
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex_2/obj/Debug/net8.0/CSharp_Ex_2.csproj.CoreCompileInputs.cache
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex_2/obj/Debug/net8.0/CSharp_Ex_2.dll
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex_2/obj/Debug/net8.0/refint/CSharp_Ex_2.dll
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex_2/obj/Debug/net8.0/CSharp_Ex_2.pdb
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex_2/obj/Debug/net8.0/CSharp_Ex_2.genruntimeconfig.cache
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex_2/obj/Debug/net8.0/ref/CSharp_Ex_2.dll

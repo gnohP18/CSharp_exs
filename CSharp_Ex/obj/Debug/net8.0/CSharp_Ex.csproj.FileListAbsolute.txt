@@ -1,0 +1,14 @@
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex/obj/Debug/net8.0/CSharp_Ex.GeneratedMSBuildEditorConfig.editorconfig
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex/obj/Debug/net8.0/CSharp_Ex.AssemblyInfoInputs.cache
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex/obj/Debug/net8.0/CSharp_Ex.AssemblyInfo.cs
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex/obj/Debug/net8.0/CSharp_Ex.csproj.CoreCompileInputs.cache
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex/bin/Debug/net8.0/CSharp_Ex
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex/bin/Debug/net8.0/CSharp_Ex.deps.json
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex/bin/Debug/net8.0/CSharp_Ex.runtimeconfig.json
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex/bin/Debug/net8.0/CSharp_Ex.dll
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex/bin/Debug/net8.0/CSharp_Ex.pdb
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex/obj/Debug/net8.0/CSharp_Ex.dll
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex/obj/Debug/net8.0/refint/CSharp_Ex.dll
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex/obj/Debug/net8.0/CSharp_Ex.pdb
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex/obj/Debug/net8.0/CSharp_Ex.genruntimeconfig.cache
+/Users/nhphong1804/Downloads/CodeExample/Learning/CSharp_Ex/obj/Debug/net8.0/ref/CSharp_Ex.dll
