@@ -1,0 +1,12 @@
+{
+    "[csharp]": {
+        "editor.maxTokenizationLineLength": 2500,
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.removeUnusedImports": "explicit"
+        },
+    },
+    "editor.codeActionsOnSave": {
+            "source.removeUnusedImports": "explicit"
+        },
+}

@@ -7,7 +7,6 @@ namespace Models {
             ReceiverName = receiverName;
         }
 
-
         public string SenderName {get; set;} = String.Empty;
         public string ReceiverName {get; set;} = String.Empty;
     }
