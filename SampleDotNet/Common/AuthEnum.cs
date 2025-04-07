@@ -11,5 +11,6 @@ namespace SampleDotNet.Common
         public static RedisKey ACCESS_TOKEN_BLACK_LIST = "AUTH:access_token_black_list";
         public static RedisKey REFRESH_TOKEN_BLACK_LIST = "AUTH:refresh_token_black_list";
         public static RedisKey USERNAME_LIST = "USER:username";
+        public static int BONUS_HOUR_REFRESH_TOKEN = 48;
     }
 }

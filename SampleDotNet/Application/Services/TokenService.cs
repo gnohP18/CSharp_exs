@@ -10,6 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 using SampleDotNet.Application.DTOs.Responses;
 using SampleDotNet.Application.Exceptions;
 using SampleDotNet.Application.Interfaces;
+using SampleDotNet.Common;
 using SampleDotNet.Database.Models;
 
 namespace SampleDotNet.Application.Services
@@ -104,7 +105,7 @@ namespace SampleDotNet.Application.Services
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddHours(_tokenSettings.AccessTokenExpirationHours + 48),
+                Expires = DateTime.UtcNow.AddHours(_tokenSettings.AccessTokenExpirationHours + AuthEnum.BONUS_HOUR_REFRESH_TOKEN),
                 // Expires = DateTime.UtcNow.AddSeconds(120),
                 SigningCredentials = signinCredentials,
                 Issuer = _tokenSettings.Issuer,

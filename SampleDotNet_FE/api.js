@@ -37,19 +37,19 @@ const ApiInstance = (function () {
             return this.request(url, "GET", headers = {});
         }
     
-        post(url, data = null) {
+        post(url, data = null, headers = {}) {
             return this.request(url, "POST", data, headers = {});
         }
     
-        put(url, data = null) {
+        put(url, data = null, headers = {}) {
             return this.request(url, "PUT", data, headers = {});
         }
     
-        delete(url) {
+        delete(url, headers = {}) {
             return this.request(url, "DELETE", headers = {});
         }
     
-        patch(url, data = null) {
+        patch(url, data = null, headers = {}) {
             return this.request(url, "PATCH", data, headers = {});
         }
     }

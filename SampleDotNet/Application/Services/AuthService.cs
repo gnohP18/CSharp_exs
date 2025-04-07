@@ -4,12 +4,14 @@ using System.Security.Claims;
 using Database;
 using Google.Protobuf;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.VisualBasic;
 using SampleDotNet.Application.DTOs.Requests;
 using SampleDotNet.Application.DTOs.Responses;
 using SampleDotNet.Application.Exceptions;
 using SampleDotNet.Application.Interfaces;
 using SampleDotNet.Common;
+using SampleDotNet.Database.Models;
 using StackExchange.Redis;
 
 namespace SampleDotNet.Application.Services
@@ -21,19 +23,25 @@ namespace SampleDotNet.Application.Services
         private readonly IDatabase _redis;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ILogger _logger;
+        private readonly TokenSettings _tokenSettings;
+        private readonly IWebHostEnvironment _env;
 
         public AuthService(
             ITokenService tokenService,
             DataContext dataContext,
             IConnectionMultiplexer connectionMultiplexer,
             ILogger<AuthService> logger,
-            IHttpContextAccessor httpContextAccessor)
+            IHttpContextAccessor httpContextAccessor,
+            IOptions<TokenSettings> tokenSettings,
+            IWebHostEnvironment env)
         {
             _tokenService = tokenService ?? throw new ArgumentNullException(nameof(tokenService));
             _dataContext = dataContext ?? throw new ArgumentNullException(nameof(dataContext));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _redis = connectionMultiplexer.GetDatabase() ?? throw new ArgumentNullException(nameof(connectionMultiplexer));
             _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
+            _tokenSettings = tokenSettings.Value ?? throw new ArgumentNullException(nameof(tokenSettings.Value));
+            _env = env ?? throw new ArgumentNullException(nameof(env));
         }
 
         public async Task<SignInResponse> LoginAsync(SignInRequest request)
@@ -56,6 +64,8 @@ namespace SampleDotNet.Application.Services
             var accessToken = _tokenService.GenerateToken(user, jti);
 
             var refreshToken = _tokenService.GenerateRefreshToken(user, jti);
+
+            AddRefreshTokenCookie(refreshToken);
 
             _logger.LogInformation("End LoginAsync");
 
@@ -84,8 +94,6 @@ namespace SampleDotNet.Application.Services
             {
                 Message = "Token revoked",
             };
-
-
         }
 
         public async Task<SignInResponse> RefreshLoginAsync(RefreshLoginRequest request)
@@ -95,6 +103,10 @@ namespace SampleDotNet.Application.Services
             // 2. Kiểm tra xem trong redis có tồn tại jti không
             // 3. Nếu có throw exception, thông báo mail, .v.v
             // 4. Nếu không add jti vào trong redis và cấp access token, refresh token mới 
+
+            // Lấy refreshToken từ cookie
+            var refreshTokenFromCookie = _httpContextAccessor.HttpContext.Request.Cookies["refresh_token"];
+            System.Console.WriteLine($"refresh token from cookie: {refreshTokenFromCookie}");
 
             // 1. Lấy claim từ refresh token
             var claim = _tokenService.ValidateToken(request.RefreshToken);
@@ -132,6 +144,8 @@ namespace SampleDotNet.Application.Services
 
             var refreshToken = _tokenService.GenerateRefreshToken(user, newJti);
 
+            AddRefreshTokenCookie(refreshToken);
+
             return new SignInResponse()
             {
                 Message = "Generate access token successfully",
@@ -141,6 +155,21 @@ namespace SampleDotNet.Application.Services
                     RefreshToken = refreshToken
                 }
             };
+        }
+
+        private void AddRefreshTokenCookie(string refreshToken)
+        {
+            _httpContextAccessor.HttpContext?.Response.Cookies.Append("refresh_token", refreshToken, new CookieOptions
+            {
+                // Only Server.
+                HttpOnly = true,
+                // Chỉ dùng với dev để test.
+                Secure = !_env.IsDevelopment(),
+                // Xác định cách cookie sẽ được gửi cùng với request.
+                SameSite = SameSiteMode.Strict,
+                // Cookie sẽ hết hạn.
+                Expires = DateTime.UtcNow.AddHours(_tokenSettings.AccessTokenExpirationHours + AuthEnum.BONUS_HOUR_REFRESH_TOKEN)
+            });
         }
     }
 }
